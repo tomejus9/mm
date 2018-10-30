@@ -1,4 +1,18 @@
 <?php
+$lang['admin']['icona'] = 'Ikona';
+// tomaas
+$lang['admin']['menu_main'] = 'Pagrindinis meniu';
+$lang['admin']['menu_extensions'] = 'Plėtiniai';
+$lang['admin']['page_url'] = 'Išorinis puslapis?';
+$lang['admin']['post_updated'] = 'Įrašas sėkmingai atnaujintas!';
+$lang['admin']['post_created'] = 'Įrašas sėkmingai sukurtas!';
+$lang['admin']['post_deleted'] = 'Įrašas sėkmingai ištrintas!';
+$lang['admin']['posts_deleted'] = 'Įrašai sėkmingai ištrinti!';
+$lang['admin']['post_not_updated'] = 'Įrašo atnaujinti nepavyko!';
+$lang['admin']['configuration_updated'] = 'Nustatymai sėkmingai atnaujinti!';
+$lang['admin']['configuration_main'] = 'Pagrindiniai nustatymai';
+$lang['admin']['configuration_seo'] = 'SEO nustatymai';
+$lang['admin']['configuration_maintenance'] = 'Remonto nustatymai';
 //Papildymas - antras
 $lang['user']['profile'] = 'Mano profilis';
 $lang['admin']['poll_active_q'] = 'Aktyvumas';
@@ -256,7 +270,7 @@ $lang['faq']['question'] = 'Klausimas';
 $lang['faq']['answers'] = 'Atsakymai';
 $lang['faq']['answer'] = 'Atsakymas';
 $lang['faq']['order'] = 'Vieta';
-$lang['faq']['edit'] = 'Redaguti';
+$lang['faq']['edit'] = 'Redaguoti';
 $lang['faq']['delete'] = 'Trinti';
 $lang['faq']['submit'] = 'Siųsti';
 $lang['faq']['new'] = 'Pridėti klausimą';
@@ -266,7 +280,7 @@ $lang['admin']['comments_off'] = 'Išjungti komentarus';
 $lang['admin']['adm_comments'] = 'Komentarų administravimas';
 $lang['admin']['del_comments'] = 'Trinti komentarus';
 $lang['admin']['comments_kid'] = 'id';
-$lang['admin']['config'] = 'Konfigūracija';
+$lang['admin']['configuration'] = 'Konfigūracija';
 $lang['admin']['cache'] = 'Kešavimas';
 $lang['admin']['use_hyphenator'] = 'Naudoti „hyphenator“ teksto lygiuoklį?';
 $lang['admin']['nuorodos'] = 'Nuorodos';
@@ -280,9 +294,9 @@ $lang['admin']['balsavimas'] = 'Apklausa';
 $lang['admin']['naujienos'] = 'Naujienos';
 $lang['admin']['lang'] = 'Kalba';
 $lang['admin']['frm'] = 'Forumas';
-$lang['admin']['vartotojai'] = 'Vartotojai';
+$lang['admin']['users'] = 'Vartotojai';
 $lang['admin']['files'] = 'Failai';
-$lang['admin']['paneles'] = 'Blokai';
+$lang['admin']['blocks'] = 'Blokai';
 $lang['admin']['bans'] = 'Draudimai';
 $lang['admin']['banai'] = 'Draudimai';
 $lang['admin']['port'] = 'Portas';
@@ -298,7 +312,8 @@ $lang['admin']['notallowed'] = 'Negalima uždrausti administratoriaus';
 $lang['admin']['save'] = 'Saugoti';
 $lang['admin']['cancel'] = 'Atšaukti';
 $lang['admin']['pm'] = 'Žinutės';
-$lang['admin']['logai'] = 'Žurnalas';
+$lang['admin']['dashboard'] = 'Darbalaukis';
+$lang['admin']['logs'] = 'Žurnalas';
 $lang['admin']['meniu'] = 'Puslapiai';
 $lang['admin']['admin_chat'] = 'Užrašinė';
 $lang['admin']['uncache'] = 'Valyti „sandėliuką“';
@@ -823,4 +838,3 @@ $lang['blocks']['kalbos.php'] = 'Kalbos pasirinkimas';
 //Kas naujo puslapis
 $lang['whatsnew']['title'] = 'Kas naujo?';
 $lang['whatsnew']['label'] = 'Kelių dienų naujienas norėtumėte peržvelgti?';
-?>

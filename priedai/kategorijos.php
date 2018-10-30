@@ -10,7 +10,7 @@
  * @$Date$
  * */
 ?>
-<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="<?php echo ROOT;?>javascript/jquery/jquery.asmselect.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -26,7 +26,7 @@
 	});
 </script>
 <script type="text/javascript" src="js/superfish.js"></script>
-<script src="js/jquery.treeview.js" type="text/javascript"></script>
+<script src="js/jquery.treeview.js" type="text/javascript"></script> -->
 <?php
 //kategoriju medis
 function cat( $kieno, $cat_id = 0, $space = 1, $x = '' ) {
@@ -75,9 +75,11 @@ function kategorija( $kieno, $leidimas = FALSE ) {
 			$kategoriju_pav[$array[$key]['name']] = $array[$key]['name'] . ' - ' . $array[$key]['sizetext'];
 		}
 	}
-	include_once ( ROOTAS . 'priedai/class.php' );
 
-	$bla    = new forma();
+	if(! class_exists('Table') && ! class_exists('forma')) {
+		include_once (ROOTAS . 'priedai/class.php');
+	}
+
 	$lygiai = array_keys( $conf['level'] );
 	if ( $kieno != 'vartotojai' ) {
 
@@ -247,7 +249,7 @@ function kategorija( $kieno, $leidimas = FALSE ) {
 		if ( $kieno == 'vartotojai' ) {
 			$textas = $lang['system']['grouplevel'];
 			//$puslapiai[""]="";
-			$failai = getFiles( ROOTAS . $conf['Admin_folder'], '.htaccess|index.php|index.html|index.htm|index.php3|conf.php|config.php|vartotojai.php|logai.php|upload.php|todo.php|paneles.php|meniu.php|komentarai.php|narsykle.php|main.php|sfunkcijos.php|pokalbiai.php|start.php|uncache.php|search.php|antivirus.php|sfunkcijos.php' );
+			$failai = getFiles( ROOTAS . $conf['Admin_folder'], '.htaccess|index.php|index.html|index.htm|index.php3|conf.php|configuration.php|users.php|logs.php|upload.php|todo.php|blocks.php|meniu.php|komentarai.php|narsykle.php|main.php|sfunkcijos.php|pokalbiai.php|dashboard.php|uncache.php|search.php|antivirus.php|sfunkcijos.php' );
 			foreach ( $failai as $file ) {
 				if ( $file['type'] == 'file' ) {
 
@@ -299,7 +301,9 @@ function kategorija( $kieno, $leidimas = FALSE ) {
 			$kategorijos[''] = array( 'type' => 'hidden', 'name' => 'Teises', 'value' => ( isset( $extra['teises'] ) ? ( $kieno == 'vartotojai' ? $extra['teises'] : unserialize( $extra['teises'] ) ) : '' ) );
 		}
 		$kategorijos[' '] = array( 'type' => 'hidden', 'name' => 'Kategorijos_id', 'value' => ( isset( $extra['id'] ) ? input( $extra['id'] ) : '' ) );
-		lentele( $lang['system']['categories'], $bla->form( $kategorijos ) );
+		
+		$formClass = new Form($kategorijos);	
+		lentele($lang['system']['categories'], $formClass->form());
 	} elseif ( $_GET['v'] == 3 ) {
 		if ( isset( $kategorijoss ) ) {
 			$kategorijos_redagavimas = array(
@@ -308,11 +312,13 @@ function kategorija( $kieno, $leidimas = FALSE ) {
 				$lang['system']['edit']     => array( 'type' => 'submit', 'name' => 'Kategorija', 'value' => $lang['system']['edit'] ),
 				$lang['system']['delete']   => array( 'type' => 'submit', 'name' => 'Kategorija', 'value' => $lang['system']['delete'] )
 			);
-			lentele( $lang['system']['editcategory'], $bla->form( $kategorijos_redagavimas ) );
+
+			$formClass = new Form($kategorijos_redagavimas);	
+			lentele($lang['system']['editcategory'], $formClass->form());
 		} else {
 			klaida( $lang['system']['warning'], $lang['system']['nocategories'] );
 		}
 	}
 	delete_cache( 'SELECT * FROM `' . LENTELES_PRIESAGA . 'grupes` WHERE `kieno` = \'straipsniai\' AND `lang`= ' . escape( lang() ) . ' ORDER BY `pavadinimas`' );
-	unset( $bla, $info, $sql, $sql2, $q, $result, $result2 );
+	unset( $formClass, $info, $sql, $sql2, $q, $result, $result2 );
 }

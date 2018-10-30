@@ -294,6 +294,14 @@ body {
     color: #1d809f;
 }
 
+.iconos {
+    font-size: 40px;
+    position: relative;
+    top: 33px;
+    color: #1d809f;
+}
+
+
 .far.fa-heart {
     font-size: 12px;
     position: relative;
@@ -301,19 +309,19 @@ body {
     color: #bcd4d1;
 }
 
-.fab {
+.textboxfooter .fab {
     font-size: 25px;
     position: relative;
     top: 20px;
     color: #ffffff
 }
-.fas.fa-cat {
+.textboxfooter .fas.fa-cat {
     font-size: 25px;
     position: relative;
     top: 20px;
     color: #ffffff;
 }
-.fas.fa-bars {
+.textboxfooter .fas.fa-bars {
     background-color: rgba(96, 96, 96, 0.3);
     font-size: 15px;
     padding: 17px;

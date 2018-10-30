@@ -1,4 +1,16 @@
 <?php
+$lang['admin']['menu_main'] = 'Main menu';
+$lang['admin']['menu_extensions'] = 'Extensions';
+$lang['admin']['page_url'] = 'External page?';
+$lang['admin']['post_updated'] = 'Post updated successful!';
+$lang['admin']['post_created'] = 'Post created successful!';
+$lang['admin']['post_deleted'] = 'Post deleted successful!';
+$lang['admin']['posts_deleted'] = 'Posts deleted successful!';
+$lang['admin']['post_not_updated'] = 'Post update error!';
+$lang['admin']['configuration_updated'] = 'Settings updated successful!';
+$lang['admin']['configuration_main'] = 'Main settings';
+$lang['admin']['configuration_seo'] = 'SEO settings';
+$lang['admin']['configuration_maintenance'] = 'Maintenance settings';
 //Papildymas - antras
 $lang['user']['profile'] = 'My profile';
 $lang['admin']['poll_active_q'] = 'Active';
@@ -282,7 +294,7 @@ $lang['admin']['for_guests'] = 'Guests';
 $lang['admin']['cache'] = 'Cache';
 $lang['admin']['use_hyphenator'] = 'Use „hyphenator“ tool?';
 $lang['admin']['lang'] = 'Language';
-$lang['admin']['config'] = 'Configuration';
+$lang['admin']['configuration'] = 'Configuration';
 $lang['admin']['nuorodos'] = 'Links';
 $lang['admin']['komentarai'] = 'Comments';
 $lang['admin']['straipsnis'] = 'Articles';
@@ -292,9 +304,9 @@ $lang['admin']['poll'] = 'Poll';
 $lang['admin']['balsavimas'] = 'Poll';
 $lang['admin']['naujienos'] = 'News';
 $lang['admin']['frm'] = 'Forum';
-$lang['admin']['vartotojai'] = 'Users';
+$lang['admin']['users'] = 'Users';
 $lang['admin']['files'] = 'Files';
-$lang['admin']['paneles'] = 'Panels';
+$lang['admin']['blocks'] = 'Panels';
 $lang['admin']['bans'] = 'Bans';
 $lang['admin']['banai'] = 'Bans';
 $lang['admin']['port'] = 'Port';
@@ -310,7 +322,8 @@ $lang['admin']['notallowed'] = 'You are not allowed to ban admin';
 $lang['admin']['save'] = 'Save';
 $lang['admin']['cancel'] = 'Cancel';
 $lang['admin']['pm'] = 'Messages';
-$lang['admin']['logai'] = 'Logs';
+$lang['admin']['dashboard'] = 'Dashboard';
+$lang['admin']['logs'] = 'Logs';
 $lang['admin']['meniu'] = 'Pages';
 $lang['admin']['admin_chat'] = 'Note book';
 $lang['admin']['uncache'] = 'Clear cache';
@@ -865,4 +878,3 @@ $lang['blocks']['kalbos.php'] = 'Select language';
 
 $lang['whatsnew']['title'] = 'What\'s new?';
 $lang['whatsnew']['label'] = 'How many days?';
-?>

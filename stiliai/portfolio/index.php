@@ -79,14 +79,14 @@ $menuSql  = mysql_query1( "SELECT * FROM `" . LENTELES_PRIESAGA . "page` WHERE `
         <h2 class="secondtext3">SERVICES</h2>
         <h1 class="maintext3">What We Offer</h1>
           <div class="row">
-          <?php $sqlr = mysql_query1("SELECT * FROM `p5_straipsniai` WHERE`rodoma` = 'TAIP' LIMIT 4;"); 
+          <?php $sqlr = mysql_query1("SELECT * FROM `p5_straipsniai` WHERE`rodoma` = 'TAIP' ORDER BY DATE DESC LIMIT 4;"); 
                foreach ($sqlr as $row) { ?>
               <div class="col-md-3">
                 <div class="iconframe">
-                <i class="fas fa-mobile-alt"></i>
+                <i class="iconos <?php echo $row['icona']?>"></i>
                 </div>
-                <p class="maintext4"><?php echo $row['pav']?></p>
-                <p class="secondtext4"><?php echo $row['t_text']?></p>
+                <div class="maintext4"><?php echo $row['pav']?></div>
+                <div class="secondtext4"><?php echo $row['t_text']?></div>
               </div>
                <?php } ?> 
               <!-- <div class="col-md-3">
