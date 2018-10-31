@@ -224,8 +224,8 @@ if(! function_exists('mysql_query1')) {
 			return $return;
 		} else {
 			$mysql_num++;
-
-			$sql = mysqli_query( $prisijungimas_prie_mysql, $query ); // or die(mysqli_error($prisijungimas_prie_mysql));
+			
+			$sql = mysqli_query( $prisijungimas_prie_mysql, $query ); //or die(mysqli_error($prisijungimas_prie_mysql));
 			if ( mysqli_error($prisijungimas_prie_mysql) ) {
 				mysqli_query( $prisijungimas_prie_mysql, "INSERT INTO `" . LENTELES_PRIESAGA . "logai` (`action` ,`time` ,`ip`) VALUES (" . escape( "MySql error:  " . mysqli_error($prisijungimas_prie_mysql) . " query: " . $query ) . ",'" . time() . "', '" . escape( getip() ) . "');" );
 			}

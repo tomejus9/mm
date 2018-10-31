@@ -23,7 +23,7 @@
 
 <body>
     <section class="first">
-        <div id="openmenu" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div id="openmenu" onclick="toggleMenu()"><i class="meniukas fas fa-bars"></i></div>
         <!-- <div class="menu"> -->
 
             <ul id="navh">
@@ -127,41 +127,25 @@ $menuSql  = mysql_query1( "SELECT * FROM `" . LENTELES_PRIESAGA . "page` WHERE `
     </section>
 
 <section class="fifth">
-      <div class="container">
+	<div class="container">
         <div class="textbox5">
-        <h2 class="secondtext5">PORTFOLIO</h2>
-        <h1 class="maintext5">Recent Projects</h1>
-          <div class="row">
-              <div class="col-md-6 bg1">
-                  <div class="photobox">
-                  <h2 class="maintext6">STATIONARY</h2>
-                  <p class="secondtext6">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-                  </div>
-              </div> 
-              <div class="col-md-6 bg1">
-                <div class="photobox">
-                  <h2 class="maintext6">ICE CREAM</h2>
-                  <p class="secondtext7">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 bg2">
-                <div class="photobox">
-                  <h2 class="maintext6">STRAWBERRIES</h2>
-                  <p class="secondtext8">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-                </div>  
-              </div>
-              <div class="col-md-6 bg2">
-                  <div class="photobox">
-                    <h2 class="maintext6">WORKSPACE</h2>
-                    <p class="secondtext9">A yellow workspace with scissors, pencils, and other objects</p>
-                </div>  
-              </div>
+			<h2 class="secondtext5">PORTFOLIO</h2>
+			<h1 class="maintext5">Recent Projects</h1>
+          	<div class="row">
+				<?php $sqlf = mysql_query1("SELECT * FROM `p5_galerija`");  ?>
+				<?php foreach ($sqlf as $foto) {  ?>
+					<?php $fotoname = $foto['file']; ?>
+						<div class="col-md-6 bg1" style="background-image: url(images/galerija/<?php echo $fotoname ?>)";>
+							<div class="photobox">
+								<h2 class="maintext6"><?php echo $foto['pavadinimas']?></h2>
+								<p class="secondtext6"><?php echo $foto['apie']?></p>
+							</div>
+						</div> 
+				<?php } ?>
             </div>
         </div>
-      </div>
-    </section>
+	</div>
+</section>
 
 
     <section class="seventh">

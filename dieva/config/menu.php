@@ -16,7 +16,7 @@ $adminExtensionsMenu = [
     // 'faq'       => 'duk.php',
     // 'comments'  => 'komentarai.php',
     // 'forum'     => 'frm.php',
-    // 'gallery'   => 'galerija.php',
+    'gallery'   => 'galerija.php',
     // 'downloads' => 'siustis.php', 
     'articles'      => 'straipsnis.php'
 ];

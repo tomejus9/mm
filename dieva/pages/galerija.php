@@ -92,6 +92,7 @@ if ( ( ( isset( $_POST['action'] ) && $_POST['action'] == $lang['admin']['delete
 	} elseif ( isset( $_POST['edit_new'] ) ) {
 		$trinti = (int)$_POST['edit_new'];
 	}
+
 	$sql = mysql_query1( "SELECT `file` FROM `" . LENTELES_PRIESAGA . "galerija` WHERE `ID` = " . escape( $trinti ) . " LIMIT 1" );
 
 	if ( isset( $sql['file'] ) && !empty( $sql['file'] ) ) {
@@ -275,7 +276,14 @@ if ( ( ( isset( $_POST['action'] ) && $_POST['action'] == $lang['admin']['delete
 					chmod( $big_img . "/originalai/" . $rand_name . $ext, 0777 );
 					$komentaras = ( isset( $_POST['kom'] ) ? $_POST['kom'] : 'taip' );
 					$rodymas    = ( isset( $_POST['rodoma'] ) ? $_POST['rodoma'] : 'TAIP' );
-					$result     = mysql_query1( "INSERT INTO `" . LENTELES_PRIESAGA . "galerija` (`pavadinimas`,`file`,`apie`,`autorius`,`data`,`categorija`,`rodoma`,`kom`, `lang`) VALUES (" . escape( $_POST['Pavadinimas'] ) . "," . escape( $rand_name . $ext ) . "," . escape( strip_tags( $_POST['Aprasymas'] ) ) . "," . escape( $_SESSION[SLAPTAS]['id'] ) . ",'" . time() . "'," . escape( $_POST['cat'] ) . "," . escape( $rodymas ) . "," . escape( $komentaras ) . ", " . escape( lang() ) . ")" );
+
+					if(! isset($_POST['cat'])) {
+						$_POST['cat'] = 0;
+					}
+					
+					$insertQuery = "INSERT INTO `" . LENTELES_PRIESAGA . "galerija` (`pavadinimas`,`file`,`apie`,`autorius`,`data`,`categorija`,`rodoma`,`kom`, `lang`) VALUES (" . escape( $_POST['Pavadinimas'] ) . "," . escape( $rand_name . $ext ) . "," . escape( strip_tags( $_POST['Aprasymas'] ) ) . "," . escape( $_SESSION[SLAPTAS]['id'] ) . ",'" . time() . "'," . escape( $_POST['cat'] ) . "," . escape( $rodymas ) . "," . escape( $komentaras ) . ", " . escape( lang() ) . ")";
+
+					$result     = mysql_query1($insertQuery);
 
 					if ( $result ) {
 						msg( $lang['system']['done'], "{$lang['admin']['gallery_added']}" );
@@ -284,7 +292,7 @@ if ( ( ( isset( $_POST['action'] ) && $_POST['action'] == $lang['admin']['delete
 					}
 
 					unset( $_FILES['failas'], $filename, $_POST['action'] );
-					redirect( url( "?id," . $_GET['id'] . ";a," . $_GET['a'] . ";v,1" ), "meta" );
+					// redirect( url( "?id," . $_GET['id'] . ";a," . $_GET['a'] . ";v,1" ), "meta" );
 
 				}
 			}
@@ -299,11 +307,15 @@ if ( ( ( isset( $_POST['action'] ) && $_POST['action'] == $lang['admin']['delete
 //foto kategoriju saraso rodymas
 if ( isset( $_GET['v'] ) ) {
 	if ( $_GET['v'] == 8 ) {
-		$text = "<fieldset><legend>{$lang['gallery']['photoalbums']}:</legend><ul>";
-		foreach ( $kategorijos as $id => $kategorija ) {
-			$text .= "<li class=\"drag_block\"><a href=\"" . url( '?id,' . $_GET['id'] . ';a,' . $_GET['a'] . ';v,8;k,' . $id ) . "\">" . str_replace( '-', '&nbsp;&nbsp;', $kategorija ) . "</a></li>";
+		$text = '';
+		if(is_array( $kategorijos)) {
+			$text .= "<fieldset><legend>{$lang['gallery']['photoalbums']}:</legend><ul>";
+			foreach ( $kategorijos as $id => $kategorija ) {
+				$text .= "<li class=\"drag_block\"><a href=\"" . url( '?id,' . $_GET['id'] . ';a,' . $_GET['a'] . ';v,8;k,' . $id ) . "\">" . str_replace( '-', '&nbsp;&nbsp;', $kategorija ) . "</a></li>";
+			}
+			$text .= "</ul></fieldset>";
 		}
-		$text .= "</ul></fieldset>";
+		
 		$viso = kiek( 'galerija', "WHERE `rodoma` = 'TAIP' AND `lang` = " . escape( lang() ) . " AND `categorija`=" . escape( ( isset( $_GET['k'] ) ? $_GET['k'] : 0 ) ) . "" );
 		$sql2 = mysql_query1( "SELECT * FROM  `" . LENTELES_PRIESAGA . "galerija` WHERE `rodoma` = 'TAIP' AND `lang` = " . escape( lang() ) . " AND `categorija`=" . escape( ( isset( $_GET['k'] ) ? $_GET['k'] : 0 ) ) . " ORDER BY `" . $conf['galorder'] . "` " . $conf['galorder_type'] . " LIMIT {$p},{$limit}" );
 //foto pagal kategorijas rodymas
@@ -335,7 +347,7 @@ if ( isset( $_GET['v'] ) ) {
 
 	} elseif ( $_GET['v'] == 1 || isset( $url['h'] ) ) {
 
-		if (! empty($sql) && count($sql) > 0) {
+		if (! empty($kategorijos)) {
 			$kom    = array( 'taip' => $lang['admin']['yes'], 'ne' => $lang['admin']['no'] );
 			$rodoma = array( 'TAIP' => $lang['admin']['yes'], 'NE' => $lang['admin']['no'] );
 			$forma  = array(
@@ -353,7 +365,7 @@ if ( isset( $_GET['v'] ) ) {
 				$forma[''] = array( "type" => "hidden", "name" => "news_id", "value" => ( isset( $extra ) ? input( $extra['ID'] ) : '' ) );
 			}
 
-			$formClass = new Form($settings);
+			$formClass = new Form($forma);
 			$title = ((isset($extra)) ? $lang['admin']['edit'] : $lang['admin']['gallery_add']);
 			$content = '<a name="edit"></a>' . ( ( isset( $extra['file'] ) ) ? '<center><img src="' . ROOT . 'images/galerija/' . input( $extra['file'] ) . '"></center>' : '' );
 
