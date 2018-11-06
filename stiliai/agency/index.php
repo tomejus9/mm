@@ -69,7 +69,7 @@
 
             <nav class="navbar navbar-default bootsnav navbar-fixed">
                 <div class="navbar-top bg-grey fix">
-                    <div class="container">
+                    <!-- <div class="container">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="navbar-callus text-left sm-text-center">
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Start Top Search -->
@@ -131,20 +131,41 @@
                     <!-- navbar menu -->
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#home">Home</a></li>                    
-                            <li><a href="#features">About</a></li>
-                            <li><a href="#business">Service</a></li>
-                            <li><a href="#work">Portfolio</a></li>
-                            <li><a href="#test">Blog</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                        <?php
+
+                                $limit = 7; //Kiek nuorodų rodome
+
+                                $menuSql  = mysql_query1( "SELECT * FROM `" . LENTELES_PRIESAGA . "page` WHERE `parent` = 0 AND `show` = 'Y' AND `lang` = " . escape(lang()) . " ORDER BY `place` ASC LIMIT " . $limit );
+
+                                ?>
+
+                                <?php foreach ($menuSql as $menuRow) { ?>
+
+                                <?php if (teises( $menuRow['teises'], $_SESSION[SLAPTAS]['level'])){ ?>
+
+                                    <li>
+
+                                        <a href="<?php echo url('?id,' . (int)$menuRow['id']); ?>">
+
+                                            <?php echo input($menuRow['pavadinimas']); ?>
+
+                                        </a>
+
+                                    </li>
+
+                                <?php } ?>
+
+                                <?php } ?>
+
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> 
 
             </nav>
+           
 
             <!--Home Sections-->
-
+            <?php if ($page ==  'puslapiai/' . $conf['pirminis']) { ?>
             <section id="home" class="home bg-black fix">
                 <div class="overlay"></div>
                 <div class="container">
@@ -155,7 +176,6 @@
                                 <?php $sqls = mysql_query1("SELECT * FROM `p5_straipsniai` WHERE`rodoma` = 'TAIP' ORDER BY DATE DESC LIMIT 4;"); 
                                         foreach ($sqls as $row) { ?>
                                     <div class="slid_item">
-                                   
                                         <div class="home_text ">
                                             <h2 class="text-white"><?php echo $row['pav']?></h2>
                                             <h1 class="text-white"><?php echo $row['t_text']?></h1>
@@ -201,7 +221,7 @@
                     </div><!--End off row-->
                 </div><!--End off container -->
             </section> <!--End off Home Sections-->
-
+      
 
 
             <!--Featured Section-->
@@ -341,9 +361,9 @@
                                                     <div class="col-sm-3">
                                                         <div class="port_item xs-m-top-30">
                                                             <div class="port_img">
-                                                                <img src="images/galerija/<?php echo $fotoname; ?>" alt="" />
+                                                                <img src="images/galerija/<?php echo $fotoname; ?>" alt="" height="230" width="230" />
                                                                 <div class="port_overlay text-center">
-                                                                    <a href="stiliai/agency/assets/images/work-img2.jpg" class="popup-img">+</a>
+                                                                    <a href="images/galerija/<?php echo $fotoname; ?>" class="popup-img">+</a>
                                                                 </div>
                                                             </div>
                                                             <div class="port_caption m-top-20">
@@ -491,7 +511,17 @@
                 </div>
             </section>
 
+       <?php } else { ?>
+            <?php
+                if ( isset( $strError ) && !empty( $strError ) ) {
 
+                klaida( "Klaida", $strError );
+            }
+                include ( "priedai/centro_blokai.php" );
+
+                include ( $page . ".php" );
+                                                        }
+                ?>
 
 
             <footer id="contact" class="footer action-lage bg-black p-top-80">
