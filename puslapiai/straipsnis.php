@@ -55,19 +55,41 @@ if ( $k >= 0 && empty( $url['m'] ) ) {
 		if ( teises( $pav['teises'], $_SESSION[SLAPTAS]['level'] ) ) {
 
 			lentele( ( !empty( $pav['pavadinimas'] ) ? $pav['pavadinimas'] : $lang['pages']['straipsnis.php'] ), $pav['aprasymas'] . "<br /><i>{$lang['category']['articles']}: {$viso}</i>" );
-			foreach ( $sql as $row ) {
-				$sql_autr = mysql_query1( "SELECT * FROM `" . LENTELES_PRIESAGA . "users` WHERE `nick`= '" . $row['autorius'] . "' LIMIT 1" );
-				$data     = $row['date'];
-				$autorius = user( $row['autorius'], $sql_autr['id'], $sql_autr['levelis'] );
+			//
+			?>
+			 	<section id="test" class="test bg-grey roomy-60 fix">
+					<div class="container">
+						<div class="row">                        
+							<div class="main_test fix">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="head_title text-center fix">
+										<h2 class="text-uppercase">Straipsniai</h2>
+										<h5></h5>
+									</div>
+								</div>
+								<?php
+									foreach ( $sql as $row ) {
+										$sql_autr = mysql_query1( "SELECT * FROM `" . LENTELES_PRIESAGA . "users` WHERE `nick`= '" . $row['autorius'] . "' LIMIT 1" );
+										$data     = $row['date'];
+										$autorius = user( $row['autorius'], $sql_autr['id'], $sql_autr['levelis'] );
 
-				if ( isset( $conf['puslapiai']['straipsnis.php']['id'] ) ) {
-					if ( $row['kom'] == 'taip' && isset( $conf['kmomentarai_sveciams'] ) && $conf['kmomentarai_sveciams'] != 3 ) {
-						$kiekis = $row['viso'];
-					}
-					$nuoroda = "" . url( "?id," . $conf['puslapiai']['straipsnis.php']['id'] . ";m," . $row['id'] . ";" . seo_url( $row['pav'], $row['id'] ) ) . "";
-					lentele_c( $row['pav'], $row['t_text'], $nuoroda, $kiekis, $data, $autorius, rating_form( $page, $row['id'] ) );
-				}
-			}
+										if ( isset( $conf['puslapiai']['straipsnis.php']['id'] ) ) {
+											if ( $row['kom'] == 'taip' && isset( $conf['kmomentarai_sveciams'] ) && $conf['kmomentarai_sveciams'] != 3 ) {
+												$kiekis = $row['viso'];
+											}
+											
+											$nuoroda = url( "?id," . $conf['puslapiai']['straipsnis.php']['id'] . ";m," . $row['id'] . ";" . seo_url( $row['pav'], $row['id'] ) );
+											
+											articleBlock($row['icona'], $row['pav'], $row['t_text'], $nuoroda, $kiekis, $data, $autorius, rating_form( $page, $row['id'] ) );
+										}
+									}
+								?>
+							</div>
+						</div>              
+					</div>
+				</section>
+			<?php
+			//
 		} else {
 			klaida( $lang['system']['warning'], "{$lang['article']['cant']}." );
 		}

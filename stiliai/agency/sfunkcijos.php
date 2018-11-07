@@ -46,6 +46,29 @@ function lentele_l( $pavadinimas, $tekstas, $label = FALSE ) {
 	</div>";
 }
 
+function articleBlock($icon, $pavadinimas, $tekstas, $n_nuoroda, $kom_kiekis = FALSE, $datai = FALSE, $autorius = FALSE, $reitingai = FALSE ) {
+	?>
+		<div class="col-md-6">
+		<a href="<?php echo $n_nuoroda?>">
+			<div class="test_item fix">
+				<div class="item_img">
+					<img class="img-circle" src="stiliai/agency/assets/images/test-img1.jpg" alt="" />
+					<i class="<?php echo $icon; ?>"></i>
+				</div>
+
+				<div class="item_text">
+					<h5><?php echo $pavadinimas; ?></h5>
+						<?php $date = date("Y-m-d H:i", $datai); ?>
+					<h6><?php echo $date; ?></h6>
+					<p><?php echo $tekstas; ?></p>
+					<?php echo $autorius; ?>
+				</div>
+			</div>
+			</a>
+		</div>
+	<?php
+}
+
 //Naujienų, straipsnių lentelė
 function lentele_c( $pavadinimas, $tekstas, $n_nuoroda, $kom_kiekis = FALSE, $datai = FALSE, $autorius = FALSE, $reitingai = FALSE ) {
 
