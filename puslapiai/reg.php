@@ -12,7 +12,7 @@
 
 function registracijos_forma() {
 
-	global $vardas, $pass, $pass2, $email, $lang, $conf;
+	global $vardas, $pass, $pass2, $email, $lang, $conf, $foto;
 	include_once ( "priedai/class.php" );
 
 	$bla   = new forma();

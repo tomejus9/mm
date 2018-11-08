@@ -8,43 +8,43 @@
         <title>Made One</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="stiliai/agency/favicon.ico">
+        <link rel="icon" type="image/png" href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/favicon.ico">
 
         <!--Google Font link-->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" >
+        <link rel="stylesheet"  href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 
 
 
-        <link rel="stylesheet" href="stiliai/agency/assets/css/slick/slick.css"> 
-        <link rel="stylesheet" href="stiliai/agency/assets/css/slick/slick-theme.css">
-        <link rel="stylesheet" href="stiliai/agency/assets/css/animate.css">
-        <link rel="stylesheet" href="stiliai/agency/assets/css/iconfont.css">
-        <link rel="stylesheet" href="stiliai/agency/assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="stiliai/agency/assets/css/bootstrap.css">
-        <link rel="stylesheet" href="stiliai/agency/assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="stiliai/agency/assets/css/bootsnav.css">
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/slick/slick.css"> 
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/slick/slick-theme.css">
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/animate.css">
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/iconfont.css">
+        <!-- <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/font-awesome.min.css"> -->
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/bootstrap.css">
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/magnific-popup.css">
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/bootsnav.css">
 
         <!-- xsslider slider css -->
 
 
-        <!--<link rel="stylesheet" href="stiliai/agency/assets/css/xsslider.css">-->
+        <!--<link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/xsslider.css">-->
 
 
 
 
         <!--For Plugins external css-->
-        <!--<link rel="stylesheet" href="stiliai/agency/assets/css/plugins.css" />-->
+        <!--<link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/plugins.css" />-->
 
         <!--Theme custom css -->
-        <link rel="stylesheet" href="stiliai/agency/assets/css/style.css">
-        <!--<link rel="stylesheet" href="stiliai/agency/assets/css/colors/maron.css">-->
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/style.css">
+        <!--<link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/colors/maron.css">-->
 
         <!--Theme Responsive css-->
-        <link rel="stylesheet" href="stiliai/agency/assets/css/responsive.css" />
+        <link rel="stylesheet"  href="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/responsive.css" />
 
-        <script src="stiliai/agency/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
 
     <body data-spy="scroll" data-target=".navbar-collapse">
@@ -121,8 +121,8 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="#brand">
-                            <img src="stiliai/agency/assets/images/logo.png" class="logo" alt="">
-                            <!--<img src="stiliai/agency/assets/images/footer-logo.png" class="logo logo-scrolled" alt="">-->
+                            <img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/logo.png" class="logo" alt="">
+                            <!--<img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/footer-logo.png" class="logo logo-scrolled" alt="">-->
                         </a>
 
                     </div>
@@ -182,7 +182,7 @@
                                                         <h3 class="text-white"><?php echo $row['autorius']?></h3>
                                                     </div>
                                                     <div class="home_btns m-top-40">
-                                                        <a href="" class="btn btn-primary m-top-20">Buy Now</a>
+                                                      
                                                     
                                                         <a href="<?php echo url( "?id," . $conf['puslapiai']['straipsnis.php']['id'] . ";m," . $row['id'] . ";" . seo_url( $row['pav'], $row['id'] ) ); ?>" class="btn btn-default m-top-20">Take a Tour</a>
                                                     </div>
@@ -256,19 +256,19 @@
                                         <div class="business_items text-center">
                                             <div class="business_item">
                                                 <div class="business_img">
-                                                    <img src="stiliai/agency/assets/images/about-img1.jpg" alt="" />
+                                                    <img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/about-img1.jpg" alt="" />
                                                 </div>
                                             </div>
 
                                             <div class="business_item">
                                                 <div class="business_img">
-                                                    <img src="stiliai/agency/assets/images/about-img1.jpg" alt="" />
+                                                    <img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/about-img1.jpg" alt="" />
                                                 </div>
                                             </div>
 
                                             <div class="business_item">
                                                 <div class="business_img">
-                                                    <img src="stiliai/agency/assets/images/about-img1.jpg" alt="" />
+                                                    <img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/about-img1.jpg" alt="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -378,46 +378,35 @@
 
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="head_title text-center fix">
-                                        <h2 class="text-uppercase">What Client Say</h2>
-                                        <h5>Clean and Modern design is our best specialist</h5>
+                                        <h2 class="text-uppercase">Paskutiniai straipsniai</h2>
+                                        <h5></h5>
                                     </div>
                                 </div>
+                                    <?php $sqls = mysql_query1("SELECT * FROM `p5_straipsniai` WHERE`rodoma` = 'TAIP' ORDER BY DATE DESC LIMIT 2;");
+                                     ?> <?php $sqlfot = mysql_query1("SELECT * FROM `p5_users`"); 
+                                        foreach ($sqls as $row) {
+                                            foreach ($sqlfot as $fotkyte) { ?>
+                                            <div class="col-md-6">
+                                                <a href="<?php echo url( "?id," . $conf['puslapiai']['straipsnis.php']['id'] . ";m," . $row['id'] . ";" . seo_url( $row['pav'], $row['id'] ) ); ?>">
+                                                <div class="test_item fix">
+                                                    <div class="item_img">
+                                                        <img class="img-circle"  src="images/galerija/<?php echo $fotkyte['foto']; ?>" alt="" />
+    
+                                                        <i class="<?php echo $row['icona']?>"></i>
+                                                    </div>
 
-                                <div class="col-md-6">
-                                    <div class="test_item fix">
-                                        <div class="item_img">
-                                            <img class="img-circle" src="stiliai/agency/assets/images/test-img1.jpg" alt="" />
-                                            <i class="fa fa-quote-left"></i>
-                                        </div>
+                                                    <div class="item_text">
+                                                        <h5><?php echo $row['pav']?></h5>
+                                                        <?php $date = date("Y-m-d", $row['date']); ?>
+                                                        <h6><?php echo $date?></h6>
 
-                                        <div class="item_text">
-                                            <h5>Sarah Smith</h5>
-                                            <h6>envato.com</h6>
-
-                                            <p>Natus voluptatum enim quod necessitatibus quis
-                                                expedita harum provident eos obcaecati id culpa
-                                                corporis molestias.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="test_item fix sm-m-top-30">
-                                        <div class="item_img">
-                                            <img class="img-circle" src="stiliai/agency/assets/images/test-img2.jpg" alt="" />
-                                            <i class="fa fa-quote-left"></i>
-                                        </div>
-
-                                        <div class="item_text">
-                                            <h5>Sarah Smith</h5>
-                                            <h6>envato.com</h6>
-
-                                            <p>Natus voluptatum enim quod necessitatibus quis
-                                                expedita harum provident eos obcaecati id culpa
-                                                corporis molestias.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                                        <p><?php echo $row['t_text']?></p>
+                                                    </div>
+                                                </div>
+                                                </a>
+                                            </div>
+                                        <?php } ?>
+                                    <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -444,32 +433,32 @@
                         <div class="main_brand text-center">
                             <div class="col-md-2 col-sm-4 col-xs-6">
                                 <div class="brand_item sm-m-top-20">
-                                    <img src="stiliai/agency/assets/images/cbrand-img1.png" alt="" />
+                                    <i class="fas fa-couch"></i>
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-4 col-xs-6">
                                 <div class="brand_item sm-m-top-20">
-                                    <img src="stiliai/agency/assets/images/cbrand-img2.png" alt="" />
+                                    <i class="fas fa-car-crash"></i>
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-4 col-xs-6">
                                 <div class="brand_item sm-m-top-20">
-                                    <img src="stiliai/agency/assets/images/cbrand-img3.png" alt="" />
+                                    <i class="fas fa-bible"></i>
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-4 col-xs-6">
                                 <div class="brand_item sm-m-top-20">
-                                    <img src="stiliai/agency/assets/images/cbrand-img4.png" alt="" />
+                                    <i class="fas fa-bong"></i>
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-4 col-xs-6">
                                 <div class="brand_item sm-m-top-20">
-                                    <img src="stiliai/agency/assets/images/cbrand-img5.png" alt="" />
+                                <i class="fab fa-aws"></i>
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-4 col-xs-6">
                                 <div class="brand_item sm-m-top-20">
-                                    <img src="stiliai/agency/assets/images/cbrand-img6.png" alt="" />
+                                <i class="fas fa-american-sign-language-interpreting"></i>
                                 </div>
                             </div>
                         </div>
@@ -542,21 +531,21 @@
                                 <div class="widget_item widget_latest sm-m-top-50">
                                     <h5 class="text-white">Latest News</h5>
                                     <div class="widget_latst_item m-top-30">
-                                        <div class="item_icon"><img src="stiliai/agency/assets/images/ltst-img-1.jpg" alt="" /></div>
+                                        <div class="item_icon"><img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/ltst-img-1.jpg" alt="" /></div>
                                         <div class="widget_latst_item_text">
                                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                                             <a href="">21<sup>th</sup> July 2016</a>
                                         </div>
                                     </div>
                                     <div class="widget_latst_item m-top-30">
-                                        <div class="item_icon"><img src="stiliai/agency/assets/images/ltst-img-2.jpg" alt="" /></div>
+                                        <div class="item_icon"><img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/ltst-img-2.jpg" alt="" /></div>
                                         <div class="widget_latst_item_text">
                                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                                             <a href="">21<sup>th</sup> July 2016</a>
                                         </div>
                                     </div>
                                     <div class="widget_latst_item m-top-30">
-                                        <div class="item_icon"><img src="stiliai/agency/assets/images/ltst-img-3.jpg" alt="" /></div>
+                                        <div class="item_icon"><img src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/images/ltst-img-3.jpg" alt="" /></div>
                                         <div class="widget_latst_item_text">
                                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                                             <a href="">21<sup>th</sup> July 2016</a>
@@ -628,21 +617,21 @@
 
         <!-- JS includes -->
 
-        <script src="stiliai/agency/assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="stiliai/agency/assets/js/vendor/bootstrap.min.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/vendor/bootstrap.min.js"></script>
 
-        <script src="stiliai/agency/assets/js/owl.carousel.min.js"></script>
-        <script src="stiliai/agency/assets/js/jquery.magnific-popup.js"></script>
-        <script src="stiliai/agency/assets/js/jquery.easing.1.3.js"></script>
-        <script src="stiliai/agency/assets/css/slick/slick.js"></script>
-        <script src="stiliai/agency/assets/css/slick/slick.min.js"></script>
-        <script src="stiliai/agency/assets/js/jquery.collapse.js"></script>
-        <script src="stiliai/agency/assets/js/bootsnav.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/owl.carousel.min.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/jquery.magnific-popup.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/jquery.easing.1.3.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/slick/slick.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/css/slick/slick.min.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/jquery.collapse.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/bootsnav.js"></script>
 
 
 
-        <script src="stiliai/agency/assets/js/plugins.js"></script>
-        <script src="stiliai/agency/assets/js/main.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/plugins.js"></script>
+        <script src="<?php echo adresas(); ?>stiliai/<?php echo input($conf['Stilius']); ?>/assets/js/main.js"></script>
 
     </body>
 </html>

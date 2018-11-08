@@ -72,6 +72,7 @@ if ( $k >= 0 && empty( $url['m'] ) ) {
 										$sql_autr = mysql_query1( "SELECT * FROM `" . LENTELES_PRIESAGA . "users` WHERE `nick`= '" . $row['autorius'] . "' LIMIT 1" );
 										$data     = $row['date'];
 										$autorius = user( $row['autorius'], $sql_autr['id'], $sql_autr['levelis'] );
+										$fotoprof = $sql_autr['foto'];
 
 										if ( isset( $conf['puslapiai']['straipsnis.php']['id'] ) ) {
 											if ( $row['kom'] == 'taip' && isset( $conf['kmomentarai_sveciams'] ) && $conf['kmomentarai_sveciams'] != 3 ) {
@@ -80,7 +81,7 @@ if ( $k >= 0 && empty( $url['m'] ) ) {
 											
 											$nuoroda = url( "?id," . $conf['puslapiai']['straipsnis.php']['id'] . ";m," . $row['id'] . ";" . seo_url( $row['pav'], $row['id'] ) );
 											
-											articleBlock($row['icona'], $row['pav'], $row['t_text'], $nuoroda, $kiekis, $data, $autorius, rating_form( $page, $row['id'] ) );
+											articleBlock($fotoprof, $row['icona'], $row['pav'], $row['t_text'], $nuoroda, $data, $autorius, rating_form( $page, $row['id'] ) );
 										}
 									}
 								?>

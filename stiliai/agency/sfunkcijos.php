@@ -46,13 +46,13 @@ function lentele_l( $pavadinimas, $tekstas, $label = FALSE ) {
 	</div>";
 }
 
-function articleBlock($icon, $pavadinimas, $tekstas, $n_nuoroda, $kom_kiekis = FALSE, $datai = FALSE, $autorius = FALSE, $reitingai = FALSE ) {
+function articleBlock($profpic, $icon, $pavadinimas, $tekstas, $n_nuoroda, $datai = FALSE, $autorius = FALSE, $reitingai = FALSE ) {
 	?>
 		<div class="col-md-6">
 		<a href="<?php echo $n_nuoroda?>">
 			<div class="test_item fix">
 				<div class="item_img">
-					<img class="img-circle" src="stiliai/agency/assets/images/test-img1.jpg" alt="" />
+					<img class="img-circle" src="images/galerija/<?php echo $profpic; ?>" alt="" height="100" width="100" />
 					<i class="<?php echo $icon; ?>"></i>
 				</div>
 
@@ -152,23 +152,23 @@ function th_meniu( $array, $start = '', $end = '' ) {
 function bbk( $forma ) {
 
 	$return = "
-<button onclick=\"addText('$forma', '[b]', '[/b]'); return false;\" title=\"B\"><img src=\"images/icons/edit-bold.png\"></button>
-<button onclick=\"addText('$forma', '[i]', '[/i]'); return false;\" title=\"I\"><img src=\"images/icons/edit-italic.png\"></button>
-<button onclick=\"addText('$forma', '[u]', '[/u]'); return false;\" title=\"U\"><img src=\"images/icons/edit-underline.png\"></button>
-<button onclick=\"addText('$forma', '[big]', '[/big]'); return false;\" title=\"BIG\"><img src=\"images/icons/edit-heading-1.png\"></button>
-<button onclick=\"addText('$forma', '[sm]', '[/sm]'); return false;\" title=\"SM\"><img src=\"images/icons/edit-heading-5.png\"></button>
-<button onclick=\"addText('$forma', '[quote]', '[/quote]'); return false;\" title=\"QUOTE\"><img src=\"images/icons/edit-quotation.png\"></button> 
-<button onclick=\"addText('$forma', '[left]', '[/left]'); return false;\" title=\"LEFT\"><img src=\"images/icons/edit-alignment.png\"></button> 
-<button onclick=\"addText('$forma', '[center]', '[/center]'); return false;\" title=\"CENTER\"><img src=\"images/icons/edit-alignment-center.png\"></button> 
-<button onclick=\"addText('$forma', '[justify]', '[/justify]'); return false;\" title=\"JUSTIFY\"><img src=\"images/icons/edit-alignment-justify.png\"></button> 
-<button onclick=\"addText('$forma', '[right]', '[/right]'); return false;\" title=\"RIGHT\"><img src=\"images/icons/edit-alignment-right.png\"></button> 
-<button onclick=\"addText('$forma', '[code]', '[/code]'); return false;\" title=\"Code\"><img src=\"images/icons/edit-code.png\"></button> 
-<button onclick=\"addText('$forma', '[url]', '[/url]'); return false;\" title=\"URL\"><img src=\"images/icons/link.png\"></button>
-<button onclick=\"addText('$forma', '[img]', '[/img]'); return false;\" title=\"IMG\"><img src=\"images/icons/picture.png\"></button>
+<button onclick=\"addText('$forma', '[b]', '[/b]'); return false;\" title=\"B\"><img src=\"".adresas()."/images/icons/edit-bold.png\"></button>
+<button onclick=\"addText('$forma', '[i]', '[/i]'); return false;\" title=\"I\"><img src=\"".adresas()."/images/icons/edit-italic.png\"></button>
+<button onclick=\"addText('$forma', '[u]', '[/u]'); return false;\" title=\"U\"><img src=\"".adresas()."/images/icons/edit-underline.png\"></button>
+<button onclick=\"addText('$forma', '[big]', '[/big]'); return false;\" title=\"BIG\"><img src=\"".adresas()."/images/icons/edit-heading-1.png\"></button>
+<button onclick=\"addText('$forma', '[sm]', '[/sm]'); return false;\" title=\"SM\"><img src=\"".adresas()."/images/icons/edit-heading-5.png\"></button>
+<button onclick=\"addText('$forma', '[quote]', '[/quote]'); return false;\" title=\"QUOTE\"><img src=\"".adresas()."/images/icons/edit-quotation.png\"></button> 
+<button onclick=\"addText('$forma', '[left]', '[/left]'); return false;\" title=\"LEFT\"><img src=\"".adresas()."/images/icons/edit-alignment.png\"></button> 
+<button onclick=\"addText('$forma', '[center]', '[/center]'); return false;\" title=\"CENTER\"><img src=\"".adresas()."/images/icons/edit-alignment-center.png\"></button> 
+<button onclick=\"addText('$forma', '[justify]', '[/justify]'); return false;\" title=\"JUSTIFY\"><img src=\"".adresas()."/images/icons/edit-alignment-justify.png\"></button> 
+<button onclick=\"addText('$forma', '[right]', '[/right]'); return false;\" title=\"RIGHT\"><img src=\"".adresas()."/images/icons/edit-alignment-right.png\"></button> 
+<button onclick=\"addText('$forma', '[code]', '[/code]'); return false;\" title=\"Code\"><img src=\"".adresas()."/images/icons/edit-code.png\"></button> 
+<button onclick=\"addText('$forma', '[url]', '[/url]'); return false;\" title=\"URL\"><img src=\"".adresas()."/images/icons/link.png\"></button>
+<button onclick=\"addText('$forma', '[img]', '[/img]'); return false;\" title=\"IMG\"><img src=\"".adresas()."/images/icons/picture.png\"></button>
 ";
 	if ( $_SESSION[SLAPTAS]['level'] == 1 ) {
 		$return .= "
-<button onclick=\"addText('$forma', '[hide=Tik registruotiems]', '[/hide]'); return false;\" title=\"HIDE\"><img src=\"images/icons/eye.png\"></button>
+<button onclick=\"addText('$forma', '[hide=Tik registruotiems]', '[/hide]'); return false;\" title=\"HIDE\"><img src=\"".adresas()."/images/icons/eye.png\"></button>
 ";
 	}
 	return $return . "<br />";
@@ -232,7 +232,7 @@ function smile( $data, $bb = FALSE ) {
 		':O'        => 'smiley-surprise.png', );
 	foreach ( $smilies as $smile => $image ) {
 		//$data = str_replace($smile,"<img src='images/smiles/$image' alt='".$smile."' class='middle' ".(($bb)?"onclick=\"addText('".$bb."','".$smile."',' ');\" style='cursor: pointer;'":"")." />",$data);
-		$data = str_replace( $smile, "<img title='{$smile}' src='images/smiles/{$image}' alt='" . $smile . "' class='middle' onclick=\"addText('" . $bb . "','" . $smile . "',' ');\" style='cursor: pointer;' />", $data );
+		$data = str_replace( $smile, "<img title='{$smile}' src='".adresas()."/images/smiles/{$image}' alt='" . $smile . "' class='middle' onclick=\"addText('" . $bb . "','" . $smile . "',' ');\" style='cursor: pointer;' />", $data );
 	}
 	return $data;
 }

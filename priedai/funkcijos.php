@@ -280,16 +280,16 @@ if(! function_exists('header_info')) {
 		<meta name="description" content="' . input( strip_tags( $conf['Pavadinimas'] ) . ' - ' . trimlink( trim( str_replace( "\n\r", "", strip_tags( $conf['Apie'] ) ) ), 120 ) ) . '" />
 		<meta name="keywords" content="' . input( strip_tags( $conf['Keywords'] ) ) . '" />
 		<meta name="author" content="' . input( strip_tags( $conf['Copyright'] ) ) . '" />
-		<link rel="stylesheet" type="text/css" href="stiliai/system.css" />
-		<link rel="stylesheet" type="text/css" href="stiliai/rating.css" />
-		<link rel="stylesheet" type="text/css" href="stiliai/' . input( strip_tags( $conf['Stilius'] ) ) . '/default.css" />
-		<link rel="shortcut icon" href="stiliai/' . input( strip_tags( $conf['Stilius'] ) ) . '/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="' . adresas() . 'stiliai/system.css" />
+		<link rel="stylesheet" type="text/css" href="' . adresas() . 'stiliai/rating.css" />
+		<link rel="stylesheet" type="text/css" href="' . adresas() . 'stiliai/' . input( strip_tags( $conf['Stilius'] ) ) . '/default.css" />
+		<link rel="shortcut icon" href="' . adresas() . 'stiliai/' . input( strip_tags( $conf['Stilius'] ) ) . '/favicon.ico" type="image/x-icon" />
 		<!-- favicon -->
-		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-		<link rel="manifest" href="/images/site.webmanifest">
-		<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#db7300">
+		<link rel="apple-touch-icon" sizes="180x180" href="' . adresas() . '/images/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="' . adresas() . '/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="' . adresas() . '/images/favicon-16x16.png">
+		<link rel="manifest" href="' . adresas() . '/images/site.webmanifest">
+		<link rel="mask-icon" href="' . adresas() . '/images/safari-pinned-tab.svg" color="#db7300">
 		<meta name="msapplication-TileColor" content="#ff440e">
 		<meta name="theme-color" content="#ffffff">
 		
@@ -299,15 +299,15 @@ if(! function_exists('header_info')) {
 		' . ( isset( $conf['puslapiai']['galerija.php'] ) ? '<link rel="alternate" href="gallery.php" type="application/rss+xml" title="" id="gallery" />' : '' ) . '
 		
 		<title>' . input( strip_tags( $conf['Pavadinimas'] ) . ' - ' . $page_pavadinimas ) . '</title>
-		<script type="text/javascript" src="javascript/jquery/jquery-1.3.2.min.js"></script>
-		<script type="text/javascript" src="javascript/pagrindinis.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/pagrindinis.js"></script>
 		<!-- Add jQuery library -->
-		<script type="text/javascript" src="javascript/jquery/fancybox/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/fancybox/jquery-1.7.2.min.js"></script>
 		<!-- Add mousewheel plugin (this is optional) -->
-		<script type="text/javascript" src="javascript/jquery/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
 		<!-- Add fancyBox main JS and CSS files -->
-		<script type="text/javascript" src="javascript/jquery/fancybox/jquery.fancybox.js?v=2.0.6"></script>
-		<link rel="stylesheet" type="text/css" href="stiliai/jquery.fancybox.css?v=2.0.6" media="screen" />
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/fancybox/jquery.fancybox.js?v=2.0.6"></script>
+		<link rel="stylesheet" type="text/css" href="' . adresas() . 'stiliai/jquery.fancybox.css?v=2.0.6" media="screen" />
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(".fancybox").fancybox();
@@ -329,13 +329,13 @@ if(! function_exists('header_info')) {
 				});
 			});
 		</script>
-		<script type="text/javascript" src="javascript/jquery/rating.js"></script>
-		<script type="text/javascript" src="javascript/jquery/tooltip.js"></script>
-		<script type="text/javascript" src="javascript/jquery/jquery.hint.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/rating.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/tooltip.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/jquery.hint.js"></script>
 
 
 		<!--[if lt IE 7]>
-		<script type="text/javascript" src="javascript/jquery/jquery.pngFix.pack.js"></script>
+		<script type="text/javascript" src="' . adresas() . 'javascript/jquery/jquery.pngFix.pack.js"></script>
 		<script type="text/javascript">$(document).ready(function(){$(document).pngFix();});</script>
 		<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
 		<![endif]-->
