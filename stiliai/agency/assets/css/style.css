@@ -923,6 +923,10 @@ Home Section style
     bottom: -200px;
 }
 
+.features .container {
+    padding-top: 100px;
+}
+
 .work_container .slick-arrow ,
 .main_home .slick-arrow{
     font-size:3rem;

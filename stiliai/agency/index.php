@@ -181,9 +181,7 @@
                                                         <h1 class="text-white"><?php echo $row['t_text']?></h1>
                                                         <h3 class="text-white"><?php echo $row['autorius']?></h3>
                                                     </div>
-                                                    <div class="home_btns m-top-40">
-                                                      
-                                                    
+                                                    <div class="home_btns m-top-40">                              
                                                         <a href="<?php echo url( "?id," . $conf['puslapiai']['straipsnis.php']['id'] . ";m," . $row['id'] . ";" . seo_url( $row['pav'], $row['id'] ) ); ?>" class="btn btn-default m-top-20">Take a Tour</a>
                                                     </div>
                                                 </div><!-- End off slid item -->
