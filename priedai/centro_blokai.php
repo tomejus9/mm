@@ -13,7 +13,7 @@
 
 $sql_p = mysql_query1( "SELECT * FROM `" . LENTELES_PRIESAGA . "panel` WHERE `align`='C' AND `lang` = " . escape( lang() ) . " ORDER BY `place` ASC", 120 );
 
-foreach ( $sql_p as $row_p ) {
+foreach ( $sql_p as $row_p ) { //adasdasd
 
 	if ( teises( $row_p['teises'], $_SESSION[SLAPTAS]['level'] ) ) {
 		if ( is_file( "blokai/" . $row_p['file'] ) ) {
