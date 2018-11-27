@@ -13,10 +13,8 @@ if ( !defined( "LEVEL" ) || LEVEL > 1 || !defined( "OK" ) ) {
 }
 
 if(BUTTONS_BLOCK) {
-	lentele($lang['admin']['users'], buttonsMenu($buttons['users']));
+	lentele($lang['admin']['users'], buttonsMenu(buttons('users')));
 }
-
-unset($buttons);
 
 if ( !isset( $_GET['v'] ) ) {
 	$_GET['v'] = 1;
@@ -100,7 +98,7 @@ if ( isset( $_POST['action'] ) && $_POST['action'] == $lang['admin']['save'] && 
 		notifyMsg(
 			[
 				'type'		=> 'error',
-				'message' 	=> mysqli_error($prisijungimas_prie_mysql)
+				'message' 	=> input(mysqli_error($prisijungimas_prie_mysql))
 			]
 		);
 	}

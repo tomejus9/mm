@@ -44,8 +44,6 @@ if ( $kid == 0 ) {
 			LIMIT {$p},{$limit}", 100 );
 
 	if ( sizeof( $sql ) > 0 ) {
-		//
-		echo 'aa';
 		foreach ( $sql as $row ) {
 			if ( isset( $conf['puslapiai']['naujienos.php']['id'] ) ) {
 				//Paprasta nuoroda
@@ -82,8 +80,6 @@ if ( $kid == 0 ) {
 				}
 			}
 		}
-		echo 'bb';
-		//
 	} else {
 		lentele( $lang['news']['news'], $lang['news']['nonews'] );
 	}

@@ -36,4 +36,3 @@ Order Allow,Deny
 Deny from env=draudziam
 
 Allow from all
-

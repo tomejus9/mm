@@ -13,10 +13,9 @@
 //Auto Atjungimas nuo sistemos (neveikė)
 //svecio lygis = 0
 $kelias = explode( '/', adresas() );
-//print_r($kelias);
 define( "PATH", ( !empty( $kelias[sizeof( $kelias ) - 2] ) ? "/{$kelias[sizeof($kelias)-2]}/" : "/" ) );
 define( "DOM", $kelias[2] );
-//echo PATH;
+
 if ( !isset( $_SESSION[SLAPTAS]['level'] ) ) {
 	$_SESSION[SLAPTAS]['level'] = 0;
 	$_SESSION[SLAPTAS]['mod']   = serialize( array() );
@@ -56,7 +55,7 @@ if ( isset( $_SESSION[SLAPTAS]['username'] ) && isset( $_SESSION[SLAPTAS]['passw
 		$user_id   = $user_id['0'];
 	}
 	$linformacija2 = mysql_query1( "SELECT `id`, `levelis`,`pass`,`nick`,`login_data`,`login_before`, (SELECT `mod` FROM `" . LENTELES_PRIESAGA . "grupes` WHERE `id`=levelis) as `mod` FROM `" . LENTELES_PRIESAGA . "users` WHERE `id`=" . escape( (int)$user_id ) . " LIMIT 1" );
-	if ( !empty( $linformacija2['levelis'] ) && isset( $user_pass ) && koduoju( $slaptas . getip() . $linformacija2['pass'] ) === $user_pass ) {
+	if ( !empty( $linformacija2['levelis'] ) && isset( $user_pass ) && koduoju( SLAPTAS . getip() . $linformacija2['pass'] ) === $user_pass ) {
 		$result = mysql_query1( "UPDATE `" . LENTELES_PRIESAGA . "users` SET `login_before`=login_data, `login_data` = '" . time() . "', `ip` = '" . escape(getip()) . "' WHERE `id` ='" . escape( $user_id ) . "' LIMIT 1" );
 		login( $linformacija2 );
 	} else {
@@ -72,12 +71,12 @@ if ( isset( $_POST['action'] ) && $_POST['action'] == 'prisijungimas' ) {
 	if ( !isset( $_SESSION[SLAPTAS]['login_error'] ) || $_SESSION[SLAPTAS]['login_error'] <= 4 ) {
 		$strUsername   = $_POST['vartotojas']; // Vartotojo vardas
 		$strPassword   = koduoju( $_POST['slaptazodis'] ); // Slaptazodis
-		$linformacija3 = mysql_query1( "SELECT `id`,`levelis`,`pass`,`nick`,`login_data`,`login_before`,(SELECT `mod` FROM `" . LENTELES_PRIESAGA . "grupes` WHERE `id`=levelis) as `mod` FROM `" . LENTELES_PRIESAGA . "users` WHERE hex(nick)=hex(" . escape( $strUsername ) . ") AND password(pass)=password('" . $strPassword . "') LIMIT 1" );
+		$linformacija3 = mysql_query1( "SELECT `id`,`levelis`,`pass`,`nick`,`login_data`,`login_before`,(SELECT `mod` FROM `" . LENTELES_PRIESAGA . "grupes` WHERE `id`=levelis) as `mod` FROM `" . LENTELES_PRIESAGA . "users` WHERE `nick`=" . escape($strUsername) . " AND `pass`='" . $strPassword . "' LIMIT 1" );
 		if ( !empty( $linformacija3 ) && $strPassword === $linformacija3['pass'] ) {
 			login( $linformacija3 );
 			mysql_query1( "UPDATE `" . LENTELES_PRIESAGA . "users` SET `login_before`=login_data, `login_data` = '" . time() . "', `ip` = '" . escape( getip() ) . "' WHERE `id` ='" . $linformacija3['id'] . "' LIMIT 1" );
 			if ( isset( $_POST['Prisiminti'] ) && $_POST['Prisiminti'] == 'on' ) {
-				setcookie( "user", $_SESSION[SLAPTAS]['id'] . "." . koduoju( $slaptas . getip() . $_SESSION[SLAPTAS]['password'] ), time() + 60 * 60 * 24 * 30, PATH, DOM );
+				setcookie( "user", $_SESSION[SLAPTAS]['id'] . "." . koduoju( SLAPTAS . getip() . $_SESSION[SLAPTAS]['password'] ), time() + 60 * 60 * 24 * 30, PATH, DOM );
 			}
 			header( "Location: " . ( isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : adresas() ) );
 		} else {
@@ -90,7 +89,7 @@ if ( isset( $_POST['action'] ) && $_POST['action'] == 'prisijungimas' ) {
 		}
 		unset( $linfo, $strUsername, $strPassword );
 	} else {
-		$strError = "{$lang['user']['cantlogin']}<span id='sekundes'>" . ( $_SESSION[SLAPTAS]['timeout_idle'] - time() ) . "</span></b><script>startCount();</script>s. ";
+		$strError = $lang['user']['cantlogin'] . ' ' . ( $_SESSION[SLAPTAS]['timeout_idle'] - time() ) . 's.';
 		//jeigu baigesi laikas
 		if ( $_SESSION[SLAPTAS]['timeout_idle'] - time() <= 0 ) {
 			unset( $_SESSION[SLAPTAS]['timeout_idle'], $_SESSION[SLAPTAS]['login_error'] );

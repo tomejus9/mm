@@ -464,7 +464,7 @@ function showNotification(type, text, callback) {
             type = 'alert-' + type;
         }
     }
-    if (text === null || text === '') { text = 'Turning standard Bootstrap alerts'; }
+    if (text === null || text === '') { text = 'Error!'; }
     var animateEnter = 'animated bounceInRight';
     var animateExit = 'animated bounceOutRight';
     var allowDismiss = true;
@@ -511,7 +511,9 @@ $(function () {
     $.AdminBSB.search.activate();
 
     //Textare auto growth
-    autosize($('textarea.auto-growth'));
+    if($('textarea.auto-growth').length) {
+        autosize($('textarea.auto-growth'));
+    }
     
     // preloader
     setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);

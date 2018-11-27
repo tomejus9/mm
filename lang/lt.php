@@ -1,6 +1,4 @@
 <?php
-$lang['admin']['icona'] = 'Ikona';
-// tomaas
 $lang['admin']['menu_main'] = 'Pagrindinis meniu';
 $lang['admin']['menu_extensions'] = 'Plėtiniai';
 $lang['admin']['page_url'] = 'Išorinis puslapis?';
@@ -13,6 +11,10 @@ $lang['admin']['configuration_updated'] = 'Nustatymai sėkmingai atnaujinti!';
 $lang['admin']['configuration_main'] = 'Pagrindiniai nustatymai';
 $lang['admin']['configuration_seo'] = 'SEO nustatymai';
 $lang['admin']['configuration_maintenance'] = 'Remonto nustatymai';
+$lang['setup']['lang'] = 'Kalba';
+$lang['setup']['url'] = 'Tinklapio url adresas';
+$lang['setup']['url_info'] = 'Įveskite pagrindinį tinklapio adresą';
+$lang['setup']['heading'] = 'MightMedia TVS įdiegimas';
 //Papildymas - antras
 $lang['user']['profile'] = 'Mano profilis';
 $lang['admin']['poll_active_q'] = 'Aktyvumas';
@@ -449,7 +451,7 @@ $lang['admin']['poll_create'] = 'Sukurti apklausą';
 $lang['admin']['poll_edit'] = 'Redaguoti apklausą';
 $lang['admin']['poll_created'] = 'Apklausa sukurta';
 $lang['admin']['poll_active'] = 'Apklausa aktyvi';
-$lang['admin']['poll_type'] = 'Apklausoos tipas';
+$lang['admin']['poll_type'] = 'Apklausos tipas';
 $lang['admin']['poll_answers'] = 'Atsakymai';
 $lang['admin']['article'] = 'Straipsnis';
 $lang['admin']['article_edit'] = 'Redaguoti straipsnį';
@@ -770,7 +772,7 @@ $lang['setup']['file_check_legend'] = 'Legenda';
 $lang['setup']['file_check_info2'] = 'Jei prie failo nustatyta ši ikonėlė vadinasi failas yra tinkamai nustatytas.';
 $lang['setup']['file_check_info3'] = 'Jei rasite šią ikonėlę prie nurodyto failo tuomet reikia jį sutvarkyti.';
 $lang['setup']['note'] = 'Priminimas';
-$lang['setup']['file_check_info3'] = 'Sutvarkyti failus, t.y. jums reikia atlikti <strong>chmod</strong>. Visur kur matote įkonėlę <img src="../images/icons/cross.png" /> būtina nurodyti <strong>chmod      777</strong> FTP serveryje. <br /><br />';
+$lang['setup']['file_check_info3'] = 'Sutvarkyti failus, t.y. jums reikia atlikti <strong>chmod</strong>. Visur kur matote įkonėlę %s būtina nurodyti <strong>chmod 777</strong> FTP serveryje. <br /><br />';
 $lang['setup']['file'] = 'Failas';
 $lang['setup']['point'] = 'Būsena';
 $lang['setup']['about_error'] = 'Apie klaidą';
@@ -788,7 +790,7 @@ $lang['setup']['mysql_pass'] = 'Slaptažodis';
 $lang['setup']['mysql_db'] = 'Duomenų bazė';
 $lang['setup']['mysql_prfx'] = 'Duomenų bazės lentelių pavadinimų priesaga';
 $lang['setup']['admin_info'] = 'Sukurkite pagrindinį administratorių kuris administruos MightMedia TVS.';
-$lang['setup']['end_info'] = 'Sveikiname įdiegus MightMedia TVS (Turinio Valdymo Sistemą).<br /> Spauskite "Pabaigti" galutinai užbaigti instaliaciją. Bus ištrintas įdiegimo: <b>install/index.php</b> failas. <h3>Būtinai baigę diegimą ištrinkite visą "install" direktoriją.</h3>.<br /><br />';
+$lang['setup']['end_info'] = 'Sveikiname įdiegus MightMedia TVS (Turinio Valdymo Sistemą).<h3>Būtinai baigę diegimą ištrinkite visą "install" direktoriją.</h3>.';
 $lang['setup']['agree_please'] = 'Prašome sutikti su licensija';
 $lang['setup']['admin_dir'] = 'Pervadink direktoriją';
 $lang['setup']['admin_dir_info'] = '"dievai" - šios direktorijos pavadinimas turi būti tik administratoriams žinomas. Pervadinkite ją į labiau sudėtingą.';
